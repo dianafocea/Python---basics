@@ -26,7 +26,6 @@ Creează un obiect de tip Patrat și joacă-te cu metodele lui
 Creează un obiect de tip Cerc și joacă-te cu metodele lui
 3. Actualizează proiectul pe github facand un push la noul cod
 În folder-ul de teme ajunge să pui doar linkul cu proiectul tău public'''
-
 class FormaGeometrica(ABC):
     PI = 3.14
     @abstractmethod
