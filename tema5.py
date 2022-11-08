@@ -5,12 +5,14 @@ def suma_numere(x, y):
     return (f'{x} + {y} = {suma}')
 print(suma_numere(3,9))
 # 2. Funcție care sa returneze TRUE dacă un număr este par, FALSE pt impar
-def is_bool(a, b):
-    if a % b == 0:
+def is_even(nr):
+    if nr % 2 == 0:
         return True
     else:
         return False
-print(is_bool(20, 4))
+
+print(is_even(18))
+print(is_even(-5))
 
 # 3. Funcție care returnează numărul total de caractere din numele tău complet.
 # (nume, prenume, nume_mijlociu)
@@ -35,12 +37,14 @@ print("aria cercului este:", arie_cerc(2))
 # într-un string dat și False dacă nu găsește.
 txt = input("Introdu un string: ")
 ch = input("cauta un caracter in text: ")
-def bool_char(x, y):
+def bool_char(txt, ch):
     if ch in txt:
         return True
     else:
         return False
 print(bool_char(txt, ch))
+print(bool_char('abc', 'a'))
+print(bool_char('abc', 'd'))
 
 # 7. Funcție fără return, primește un string și printează pe ecran:
 # ● Nr de caractere lower case este x
@@ -59,14 +63,14 @@ void(txt)
 
 # 8. Funcție care primește o LISTA de numere și returnează
 # o LISTA doar cu numerele pozitive
-lista = [10, -6, 8, -100, 9, 5, -8, 44, 4, -22, -1, 80, 35, 0]
-lista_pare = []
-def lista_pozitive(lista):
+lista_nr = [10, -6, 8, -100, 9, 5, -8, 44, 4, -22, -1, 80, 35, 0]
+def nr_pozitive(lista):
+    lista_pare = []
     for nr in lista:
         if nr % 2 == 0:
             lista_pare.append(nr)
     return lista_pare
-print(lista_pozitive(lista))
+print(nr_pozitive(lista_nr))
 
 # 9. Funcție care nu returneaza nimic. Primește două numere și PRINTEAZA
 # ● Primul număr x este mai mare decat al doilea nr y
@@ -98,9 +102,7 @@ def add_set(nr, setlist):
 print(add_set(nr, setlist))
 
 # Exerciții Opționale - grad de dificultate: Mediu spre greu: may need Google.
-# 1. Funcție care primește o lună din an și returnează câte zile are acea luna
-# Exerciții Opționale - grad de dificultate: Mediu spre greu: may need Google.
-# 1. Funcție care primește o lună din an și returnează câte zile are acea luna
+#1. Funcție care primește o lună din an și returnează câte zile are acea luna
 month_input = int(input("Choose a number between 1-12: "))
 def days_per_month(m):
     months_dict = {
@@ -205,30 +207,37 @@ print(sum_all_numbers(3))
 # Returnați numerele comune
 list1 = [0, 1, 2, 3, 4, 2, 3, 4, 9, 8, 7]
 list2 = [0, 1, 2, 0, 2, 3, 4, 9, 0, 5, 6]
-list3 = []
-def intersection_lists(lst1, lst2):
+def intersection_list(lst1, lst2):
+    list3 = []
     for nr in list1:
         if nr in list2:
             list3.append(nr)
     return set(list3)
-print(intersection_lists(list1, list2))
+print(intersection_list(list1, list2))
 
+print('------------- varianta 2: --------------')
+def intersection_lst(lst1, lst2):
+    set1 = set(lst1)
+    set2 = set(lst2)
+    return set1.intersection(set2)
+
+lst1 = [1, 5, 2, 7, 3, 2, 3]
+lst2 = [2, 7, 2, 3, 4, 5, 6]
+
+print(intersection_lst(lst1, lst2))
 # 2.. Funcție care să aplice o reducere de preț
 # Dacă produsul costa 100 lei și aplicăm reducere de 10%. Pretul va fi 90
 # Tratați cazurile în care reducerea e invalida. De exemplu o reducere de 110% e
 # invalidă.
-pret_produse = [10, 100, 4, 34, 55, 99.99, 5.99]
-pret_redus = []
-REDUCERE = 0.1
-def discount():
-    if REDUCERE:
-        for pret in pret_produse:
-            pret *= REDUCERE
-            pret_redus.append(float(pret))
-    else:
-        print("Nu exista alta reducere decat de 10%!")
-    return pret_redus
-print(discount())
+def discount(pret, disc):
+    if disc > 100 or disc < 0:
+        return 'reducere invalida'
+    pret_nou = pret - (disc / 100) * pret
+    return pret_nou
+
+print(discount(100, -20))
+print(discount(100, 20))
+print(discount(100, 200))
 
 # 3. Funcție care să afișeze data și ora curentă din ro
 # (bonus: afișați și data și ora curentă din China)
@@ -248,6 +257,13 @@ def time_zone():
     else:
         return name + " not in timezone"
 print(time_zone())
+
+def date_timeRO():
+    date_time = datetime.now()
+    dt_string = date_time.strftime("%A, %d %B %Y, %X %p ")
+    print("date_time in Romania: ", dt_string)
+
+date_timeRO()
 
 # 4. Funcție care să afișeze câte zile mai sunt până la ziua ta / sau până la
 # Crăciun dacă nu vrei să ne zici cand e ziua ta :)
@@ -271,3 +287,11 @@ def my_birthday_calculator():
         print("Days left until next my_birthday:")
         return str(delta)
 print(my_birthday_calculator())
+
+
+def amr_xmas(year):
+    christmas_day = date(year=year, month=12, day=25)
+    days_til_christmas = (christmas_day - date.today()).days
+    return days_til_christmas
+
+print(amr_xmas(2022))
