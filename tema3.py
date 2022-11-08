@@ -5,7 +5,7 @@
 # Indirect vei exersa și operatorii în cadrul condițiilor ramurilor din if.
 # X poate fi inițializat direct în cod sau citit de la tastatură, după preferințe.
 # // X este un int.
-#
+
 # 1. Declară o listă note_muzicale în care să pui do re mi etc până la do
 # ● Afișeaz-o
 # ● Inversează ordinea folosind slicing și suprascrie această listă.

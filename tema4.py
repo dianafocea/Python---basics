@@ -323,7 +323,7 @@ for i in user_inp:
         suma += score[i]
 print(f"Punctajul pentru cuvantul/sirul `{user_inp}` este:", suma)
 """
-ex 4 tema_extra:
+------------  ex 4 tema_extra: ----------------------------------------
 
 Scrieți un program Python care repetă numerele întregi de la 1 la 50. 
 Pentru multiplii de trei tipăriți „Fizz” în loc de număr, iar pentru multiplii de cinci tipăriți „Buzz”. 
