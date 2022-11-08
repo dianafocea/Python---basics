@@ -55,7 +55,7 @@ print(lst2)
 # 4.
 # ● Sortează și afișază lista generată la exercițiul anterior.
 # ● Sterge numărul 0 folosind o funcție.
-# ● Afișaza iar lista.
+# ● Afișeaza iar lista.
 
 lst_total1.sort()
 print("lst sortata: ", lst_total1)
@@ -74,13 +74,11 @@ print("lst random: ", random.sample(lst_total2, 6))
 # ● Lista nu este goală.
 
 print("lista ex5: ", lst1)
-
 if len(lst1) <= 0:
     print(f'Lista este goala', lst1)
 else:
     print(f'Lista nu este goala', lst1)
 
-#
 # 6. Folosește o funcție care să șteargă lista de la exercițiul 3.
 print("ex6: ")
 lst1.clear()
