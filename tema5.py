@@ -1,9 +1,9 @@
 # Exerciții obligatorii - grad de dificultate: Usor spre Mediu .
 # 1.Funcție care să calculeze și să returneze suma a două numere
-def sum(a, b):
-    return a + b
-print("suma este", sum(3, 4))
-
+def suma_numere(x, y):
+    suma = x + y
+    return (f'{x} + {y} = {suma}')
+print(suma_numere(3,9))
 # 2. Funcție care sa returneze TRUE dacă un număr este par, FALSE pt impar
 def is_bool(a, b):
     if a % b == 0:
