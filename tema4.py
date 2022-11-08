@@ -9,8 +9,8 @@
 masini = ['Audi', 'Volvo', 'BMW', 'Mercedes', 'Aston Martin', 'Lăstun',
           'Fiat', 'Trabant', 'Opel']
 #for simplu
-for x in masini:
-    print(f'Mașina mea preferată este {x}.')
+for x in range(len(masini)):
+    print(f'FOR: Masina mea preferata este: {masini[x]}')
 
 #forEach
 for masina in masini:
@@ -53,7 +53,6 @@ for m in masini:
         break
     else:
         print(f"Am gasit masina {m}.Mai cautam")
-        continue
 
 # 4. Aceași listă;
 # Vine un cumpărător bogat dar indecis. Îi vom prezenta toate mașinile cu
@@ -134,7 +133,7 @@ print(f"\nsuma nr este {suma} ")
 # ● Iterează prin ea.
 # ● Afișază cel mai mare număr (nu ai voie să folosești max).
 numere = [5, 7, 3, 9, 3, 3, 1, 0, -4, 3]
-nr_max = 0
+nr_max = numere[0]
 for i in numere:
     if nr_max < i:
         nr_max = i
@@ -145,12 +144,14 @@ print(f"\ncel mai mare nr din lista este {nr_max} ")
 # Ex: dacă e 3, să devină -3
 # ● Afișază noua listă.
 numere = [7, 5, 3, 9, 3, 3, 1, 0, -4, 3]
+nr_negative = []
 print(numere)
-print('Noua lista este: ')
 for i in numere:
     if i > 0:
         i *= -1
-    print(i, end=" ")
+        # i = -(abs(i)) #alta varianta
+    nr_negative.append(i)
+print(f'lista nr_negative:\n{nr_negative}')
 # Exerciții Opționale - grad de dificultate: Mediu spre greu: may need
 # Google.
 # 1.   # Itereaza prin listă alte_numere
@@ -181,15 +182,12 @@ print("numere_negative", numere_negative)
 # Te poți inspira vizual de aici.
 # https://www.youtube.com/watch?v=lyZQPjUT5B4
 nr = [-5, 7, 2, 9, 12, 3, 1, -6, -4, 3]
-while True:
-    for i in range(0, len(nr)-2):
-        for j in range(1, len(nr)-1):
-            if nr[j] > nr[j + 1]:
-                temp = nr[j]
-                nr[j] = nr[j + 1]
-                nr[j + 1] = temp
-    print("Bubblesort:", nr)
-    break
+for i in range(len(nr)):
+    for j in range(i + 1, len(nr)):
+        if nr[i] > nr[j]:
+            nr[i], nr[j] = nr[j], nr[i]
+print(nr)
+
 # 3. Ghicitoare de număr:
 # numar_secret = Generați un număr random între 1 și 30
 # Numar_ghicit = None
@@ -199,30 +197,31 @@ while True:
 # ● Nr secret e mai mare
 # ● Nr secret e mai mic
 # ● Felicitări! Ai ghicit!
-import random as r
-
+import random
+interval = range(1, 31)
+numar_secret = random.randint(1, 30)
 numar_ghicit = None
-while numar_ghicit == None:
-    numar_secret = r.randint(1, 30)
-    numar_ghicit = int(input("Alege un nr din intervalul (1, 30)!"))
-    if numar_ghicit in range(1, 31):
-        if numar_ghicit == numar_secret:
-            print("Felicitări! Ai ghicit!")
-        elif numar_ghicit > numar_secret:
-            print(f'Nr secret e mai mic --> {numar_secret}')
-        else:
-            print(f'Nr secret e mai mare --> {numar_secret}')
 
+while numar_ghicit is None:
+    nr = int(input('Introdu un numar: '))
+    if nr not in interval:
+        print('Ai ales un nr in afara intervalului')
     else:
-        print("Ai ales un nr din afara intervalului!")
-print("***********")
+        if nr > numar_secret:
+            print('Numarul secret este mai mic')
+        elif nr < numar_secret:
+            print('Numarul secret este mai mare')
+        else:
+            print('Felicitari, ai gasit numarul!')
+            break
+print("*********************************")
 # 4. Alege un număr de la tastatură
 # Scrie un program care să genereze în consolă următoarea piramidă
 # spre exemplu pt n = 3:
 # 1
 # 22
 # 333
-n = int(input("Alege un nr din intervalul (1, 10)!"))
+n = int(input("Alege un nr din intervalul 1-9 inclusiv: "))
 if 1 <= n < 10:
     for i in range(0, n+1):
         for j in range(0, i ):
@@ -230,6 +229,7 @@ if 1 <= n < 10:
         print("\n", end="")
 else:
     print("nr este in afara intervalului")
+
 # 5.
 # Iterează prin listă 2d
 # Printează ‘Cifra curentă este x’
@@ -254,7 +254,7 @@ Scrie un program care citeste de la tastatura 3 numere: a, b, c
 Verifica cate numere intre a si b sunt divizibile cu c
 """
 a = int(input("a = "))
-b = int(input("b = introdu un nr > a:"))
+b = int(input("b = introdu un nr > a: "))
 c = int(input("introdu un nr > 0: "))
 list_nr = range(a, b+1)
 nr_divizibile = []
@@ -268,7 +268,7 @@ else:
             nr_divizibile.append(i)
             i += 1
     for i in list_nr:
-        print(i, end="|")
+        print(i, end=" | ")
     print(f"\nintervalul contine {len(nr_divizibile)} numere divizibile cu {c}: {nr_divizibile}")
 """
 ex 2 tema_extra:
@@ -329,9 +329,10 @@ Scrieți un program Python care repetă numerele întregi de la 1 la 50.
 Pentru multiplii de trei tipăriți „Fizz” în loc de număr, iar pentru multiplii de cinci tipăriți „Buzz”. 
 Pentru numerele care sunt multipli de trei și cinci, se afișează „FizzBuzz”
 """
-for i in range(1, 51): #1,2,3,4,5
+for i in range(1, 51):   #1,2,3,4,5
     if i % 3 == 0 and i % 5 == 0:
         print("FizzBuzz")
+        continue
     if i % 3 == 0:
         print("Fizz")
         continue
