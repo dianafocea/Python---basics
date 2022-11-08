@@ -1,4 +1,4 @@
-# Tema 3 - Structuri de date
+# Tema 3 - Structuri de date:
 
 # Exerciții obligatorii - grad de dificultate: Usor spre Mediu
 # //Pentru toate exercițiile se va folosi noțiunea de if în rezolvare.
