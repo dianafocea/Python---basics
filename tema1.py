@@ -1,12 +1,10 @@
 #Exerciții obligatorii - grad de dificultate: Ușor spre Mediu:
 #1. În cadrul unui comentariu, explică cu cuvintele tale ce este o variabilă.
-
 '''
 O variabila este o zona din memoria calculatorului
 pe care o etichetam, in mod unic,
 pentru a stoca valori
 '''
-
 # 2. Declară și initializează câte o variabilă din fiecare din urm tipuri de date :
 
 nume = "avocado"  #str

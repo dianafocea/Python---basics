@@ -174,8 +174,7 @@ print("- " * 50)
 # - Afișază ‘ nu se poate efectua schimbarea deoarece jucătorul x nu e în
 # teren’
 # - Afișază ‘mai ai z schimbări’
-# Testează codul cu diferite valori
-#
+# Testează codul cu diferite valori#
 # Google search hint
 # “how to check if item îs în list python”
 

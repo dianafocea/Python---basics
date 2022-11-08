@@ -126,10 +126,3 @@ print("delete_raza c1 = ", c1.delete_raza())
 print("get_raza dupa delete = ", c1.get_raza())
 print('descrie c1:')
 c1.descrie()
-
-
-
-
-
-
-

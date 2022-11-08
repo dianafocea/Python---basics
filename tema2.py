@@ -53,8 +53,6 @@ else:
     print("x este cuprins în [5, 27]")
 print("-" * 50)
 
-
-
 ## 7.
 # # x și y (int). Verifică și afișează dacă sunt egale,
 # #iar dacă nu sunt, afișează care din ele este mai mare.
