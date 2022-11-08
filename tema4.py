@@ -246,7 +246,6 @@ for i in tastatura_telefon:
         print(f'cifra curenta este: {j}')
 
 # *********************** TEMA EXTRA *********************** TEMA EXTRA ***********************
-
 """
 ex 1 tema_extra:
 
@@ -270,13 +269,33 @@ else:
     for i in list_nr:
         print(i, end=" | ")
     print(f"\nintervalul contine {len(nr_divizibile)} numere divizibile cu {c}: {nr_divizibile}")
+
+print("----------- varianta 2: ------------------")
+
+a = int(input("Introduceti o valoare pt a: "))
+b = int(input("Introduceti o valoare pt b: "))
+c = int(input("Introduceti nr la care trebuie impartit: "))
+contor = 0
+
+# daca b < a, inversam a cu b:
+temp = 0
+if(a > b):
+    temp = b
+    b = a
+    a = temp
+
+for i in range(a, b):
+    if(i % c == 0):
+        contor += 1
+
+print(f"Au fost gasite {contor} numere divizibile cu {c}")
+
 """
 ex 2 tema_extra:
 Scrieti un program prin care un user introduce de la tastatura o serie de numere integer, unul dupa altul folosind ENTER. Userul poate introduce cate numere vrea.
 Cand userul introduce de la tastatura cuvantul "stop" in loc de un numar atunci programul ar trebui sa se opreasca si sa afiseze:
 - toate numerele introduse sortate crescator
 - cate numere pare au fost introduse si suma lor
-
 Folositi continue si break
 """
 lista_nr = []
