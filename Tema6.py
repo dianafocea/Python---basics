@@ -265,7 +265,7 @@ class Masina():
             print(f'masina a accelerat, viteza actuala este:{self.viteza_actuala}')
 
   #VARIANTA 2 --> accelereaza:
-
+        #
         # if 0 < viteza <= 190:
         #     self.viteza_actuala += viteza
         #     if 0 < self.viteza_actuala <= 190:
@@ -343,7 +343,7 @@ class TodoList():
                 self.adauga_task(nume_task, descr_task)
                 print(f"Task ul `{nume_task}` a fost adaugat in lista")
             else:
-                print("Nu s-a adaugat task-ul. La reveredere!")
+                print("Nu s-a adaugat task-ul. La revedere!")
         else:
             if nume_task in self.todo.keys():
                 print(f"{nume_task} --> {self.todo[nume_task]}")
