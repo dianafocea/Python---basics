@@ -33,7 +33,7 @@ class Login(unittest.TestCase):
     ID_FIELD = (By.ID, "username")
     PASS_FIELD = (By.ID, "password")
     LOGIN_ERROR = (By.XPATH, '//*[@id="flash"]')
-
+    LOGIN_PAGE = (By.XPATH, '//*[@id="content"]/div/h2')
 
     def setUp(self):
         self.chrome = webdriver.Chrome()
@@ -65,8 +65,8 @@ class Login(unittest.TestCase):
 # ● Test 3
 # - Verifică textul de pe elementul xpath=//h2 e corect
     def test_xpath_h2_iscorrect(self):
-        actual_h2title = self.chrome.title
-        expected_h2title = "The Internet"
+        actual_h2title = self.chrome.find_element(*self.LOGIN_PAGE)
+        expected_h2title = "Login Page"
         self.assertEqual(actual_h2title, expected_h2title, "h2 title incorrect")
 
 # ● Test 4
@@ -87,8 +87,6 @@ class Login(unittest.TestCase):
 # - Click login
 # - Verifică dacă eroarea e displayed
 
-#         btn = self.chrome.find_element(*self.LOGIN_BUTTON)
-#         self.assertTrue(btn.is_displayed(), 'Butonul nu este displayed')
 
     def test_login_eroor_isdisplayed(self):
         id_login = self.chrome.find_element(*self.ID_FIELD).send_keys("")
