@@ -50,7 +50,7 @@ class Login(unittest.TestCase):
 # ● Test 1
 # - Verifică dacă noul url e corect
     def test_page_iscorrect(self):
-        actual_url = self.chrome.title
+        actual_url = self.chrome.current_url
         expected_url = "https://the-internet.herokuapp.com/login"
         self.assertEqual(actual_url, expected_url, "Page incorrect")
 
@@ -65,7 +65,7 @@ class Login(unittest.TestCase):
 # ● Test 3
 # - Verifică textul de pe elementul xpath=//h2 e corect
     def test_xpath_h2_iscorrect(self):
-        actual_h2title = self.chrome.find_element(*self.LOGIN_PAGE)
+        actual_h2title = self.chrome.find_element(*self.LOGIN_PAGE).text
         expected_h2title = "Login Page"
         self.assertEqual(actual_h2title, expected_h2title, "h2 title incorrect")
 
