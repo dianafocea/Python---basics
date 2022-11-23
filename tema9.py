@@ -50,9 +50,9 @@ class Login(unittest.TestCase):
 # ● Test 1
 # - Verifică dacă noul url e corect
     def test_page_iscorrect(self):
-        actual_title = self.chrome.title
-        expected_title = "The Internet"
-        self.assertEqual(actual_title, expected_title, "Title incorrect")
+        actual_url = self.chrome.title
+        expected_url = "https://the-internet.herokuapp.com/login"
+        self.assertEqual(actual_url, expected_url, "Page incorrect")
 
 
 # ● Test 2
