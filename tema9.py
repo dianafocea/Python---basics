@@ -28,7 +28,12 @@ class Login(unittest.TestCase):
     chrome.maximize_window()
 
     FORM_LINK = (By.LINK_TEXT, "Form Authentication")
-    SUBMIT_BUTTON = (By.XPATH, "//*[@id='login']/button")
+    LOGIN_BUTTON = (By.XPATH, '//*[@id="login"]/button/i')
+    ATTR_BUTTON = (By.LINK_TEXT, "Elemental Selenium")
+    ID_FIELD = (By.ID, "username")
+    PASS_FIELD = (By.ID, "password")
+    LOGIN_ERROR = (By.XPATH, '//*[@id="flash"]')
+
 
     def setUp(self):
         self.chrome = webdriver.Chrome()
@@ -56,21 +61,43 @@ class Login(unittest.TestCase):
         actual_title = self.chrome.title
         expected_title = "The Internet"
         self.assertEqual(actual_title, expected_title, "Title incorrect")
+
 # ● Test 3
 # - Verifică textul de pe elementul xpath=//h2 e corect
+    def test_xpath_h2_iscorrect(self):
+        actual_h2title = self.chrome.title
+        expected_h2title = "The Internet"
+        self.assertEqual(actual_h2title, expected_h2title, "h2 title incorrect")
+
 # ● Test 4
 # - Verifică dacă butonul de login este displayed
-    def test_button_displayed(self):
-        btn = self.chrome.find_element(*self.SUBMIT_BUTTON)
+    def test_button_isdisplayed(self):
+        btn = self.chrome.find_element(*self.LOGIN_BUTTON)
         self.assertTrue(btn.is_displayed(), 'Butonul nu este displayed')
 
 # ● Test 5
 # - Verifică dacă atributul href al linkului ‘Elemental Selenium’ e corect
-#
+    def test_href_attribute_iscorrect(self):
+        actual = self.chrome.find_element(*self.ATTR_BUTTON).get_attribute('href')
+        expected = 'http://elementalselenium.com/'
+        self.assertEqual(actual, expected, 'The attribute value is not correct')
+
 # ● Test 6
 # - Lasă goale user și pass
 # - Click login
 # - Verifică dacă eroarea e displayed
+
+#         btn = self.chrome.find_element(*self.LOGIN_BUTTON)
+#         self.assertTrue(btn.is_displayed(), 'Butonul nu este displayed')
+
+    def test_login_eroor_isdisplayed(self):
+        id_login = self.chrome.find_element(*self.ID_FIELD).send_keys("")
+        pass_login = self.chrome.find_element(*self.PASS_FIELD).send_keys("")
+        login = self.chrome.find_element(*self.LOGIN_BUTTON).click()
+        login_error = self.chrome.find_element(*self.LOGIN_ERROR)
+        self.assertTrue(login_error.is_displayed()), 'Login error not displayed'
+
+
 # ● Test 7
 # - Completează cu user și pass invalide
 # - Click login
