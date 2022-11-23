@@ -11,7 +11,7 @@ chrome.maximize_window()
 # Exerciții obligatorii - grad de dificultate: Usor spre Mediu
 # Alege unul sau mai multe din sugestiile de site-uri de mai jos
 # - https://www.phptravels.net/
-# - http://automationpractice.com/index.php    # cod---> invalid
+# - http://automationpractice.com/index.php    # link---> invalid
 # - https://formy-project.herokuapp.com/
 # - https://the-internet.herokuapp.com/
 # - https://www.techlistic.com/p/selenium-practice-form.html
