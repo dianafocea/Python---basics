@@ -1,26 +1,69 @@
+
 # Tema 9 - VERIFICATORI
-# Exerciții Recomandate - grad de dificultate: Ușor
-# 1. Revizualizează întâlnirea 8 și ia notițe în caz că ți-a scăpat ceva.
 # Exerciții obligatorii - grad de dificultate: Usor spre Mediu
+
+from selenium import webdriver
+import unittest
+from unittest import TestCase
+from selenium.webdriver.common.by import By
+from selenium import webdriver
+from selenium.webdriver.support.ui import Select
+from selenium.common.exceptions import NoSuchElementException, TimeoutException
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
+
 # Implementează o clasă Login care să moștenească unittest.TestCase
 # Gasește elementele în partea de sus folosind ce selectors dorești:
 # - setUp()
 # - Driver
 # https://the-internet.herokuapp.com/
 # Click pe Form Authentication
+
 # tearDown()
 # Quit browser
 #
+class Login(unittest.TestCase):
+    chrome = webdriver.Chrome()
+    chrome.maximize_window()
+
+    FORM_LINK = (By.LINK_TEXT, "Form Authentication")
+    SUBMIT_BUTTON = (By.XPATH, "//*[@id='login']/button")
+
+    def setUp(self):
+        self.chrome = webdriver.Chrome()
+        self.chrome.maximize_window()
+        self.chrome.implicitly_wait(3)
+        self.chrome.get("https://the-internet.herokuapp.com/")
+        self.chrome.find_element(*self.FORM_LINK).click()
+
+
+    def tearDown(self):
+        self.chrome.quit()
+
+
 # ● Test 1
 # - Verifică dacă noul url e corect
-#
+    def test_page_iscorrect(self):
+        actual_title = self.chrome.title
+        expected_title = "The Internet"
+        self.assertEqual(actual_title, expected_title, "Title incorrect")
+
+
 # ● Test 2
 # - Verifică dacă page title e corect
+    def test_page_title(self):
+        actual_title = self.chrome.title
+        expected_title = "The Internet"
+        self.assertEqual(actual_title, expected_title, "Title incorrect")
 # ● Test 3
 # - Verifică textul de pe elementul xpath=//h2 e corect
 # ● Test 4
 # - Verifică dacă butonul de login este displayed
-#
+    def test_button_displayed(self):
+        btn = self.chrome.find_element(*self.SUBMIT_BUTTON)
+        self.assertTrue(btn.is_displayed(), 'Butonul nu este displayed')
+
 # ● Test 5
 # - Verifică dacă atributul href al linkului ‘Elemental Selenium’ e corect
 #
