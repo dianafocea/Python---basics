@@ -349,6 +349,7 @@ class TodoList():
                 print(f"{nume_task} --> {self.todo[nume_task]}")
         print(f"Elementele dictionarului:\n{self.todo}")
 
+
 t1 = TodoList()
 print("dictionarul initial este gol:", t1.todo)
 t1.adauga_task("gatit", "bucatarie")
