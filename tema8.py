@@ -18,24 +18,24 @@ chrome.maximize_window()
 # - jules.app
 # Alege câte 3 elemente din fiecare tip de selector din următoarele categorii:
 # ● Id
-# chrome.get("https://formy-project.herokuapp.com/form")
-# chrome.find_element(By.ID, 'first-name').send_keys('Diana')
-# chrome.find_element(By.ID, 'last-name').send_keys('Focea')
-# chrome.find_element(By.ID, 'job-title').send_keys('QA Engineer')
+chrome.get("https://formy-project.herokuapp.com/form")
+chrome.find_element(By.ID, 'first-name').send_keys('Diana')
+chrome.find_element(By.ID, 'last-name').send_keys('Focea')
+chrome.find_element(By.ID, 'job-title').send_keys('QA Engineer')
 #
 # # ● Link text
 #
-# chrome.get('https://the-internet.herokuapp.com/')
-# chrome.find_element(By.LINK_TEXT, "Dynamic Loading").click()
-# chrome.find_element(By.LINK_TEXT, "Example 2: Element rendered after the fact").click()
-# chrome.find_element(By.LINK_TEXT, "Elemental Selenium").click()
+chrome.get('https://the-internet.herokuapp.com/')
+chrome.find_element(By.LINK_TEXT, "Dynamic Loading").click()
+chrome.find_element(By.LINK_TEXT, "Example 2: Element rendered after the fact").click()
+chrome.find_element(By.LINK_TEXT, "Elemental Selenium").click()
 
 # ● Parțial link text
 
-# chrome.get('https://the-internet.herokuapp.com/')
-# chrome.find_element(By.PARTIAL_LINK_TEXT, "Codes").click()
-# chrome.find_element(By.PARTIAL_LINK_TEXT, "5").click()
-# chrome.find_element(By.PARTIAL_LINK_TEXT, "here").click()
+chrome.get('https://the-internet.herokuapp.com/')
+chrome.find_element(By.PARTIAL_LINK_TEXT, "Codes").click()
+chrome.find_element(By.PARTIAL_LINK_TEXT, "5").click()
+chrome.find_element(By.PARTIAL_LINK_TEXT, "here").click()
 
 # ● Name  select2-search__field
 

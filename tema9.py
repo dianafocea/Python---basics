@@ -22,7 +22,7 @@ from selenium.webdriver.support import expected_conditions as EC
 
 # tearDown()
 # Quit browser
-#
+
 class Login(unittest.TestCase):
     chrome = webdriver.Chrome()
     chrome.maximize_window()
@@ -106,6 +106,8 @@ class Login(unittest.TestCase):
 # expected = 'Your username is invalid!'
 # self.assertTrue(expected in actual, 'Error message text is
 # incorrect')
+
+
 # ● Test 8
 # - Lasă goale user și pass
 # - Click login
